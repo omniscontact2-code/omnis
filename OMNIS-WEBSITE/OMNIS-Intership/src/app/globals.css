@@ -1,0 +1,230 @@
+@import "tailwindcss";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+  --color-sidebar-ring: var(--sidebar-ring);
+  --color-sidebar-border: var(--sidebar-border);
+  --color-sidebar-accent-foreground: var(--sidebar-accent-foreground);
+  --color-sidebar-accent: var(--sidebar-accent);
+  --color-sidebar-primary-foreground: var(--sidebar-primary-foreground);
+  --color-sidebar-primary: var(--sidebar-primary);
+  --color-sidebar-foreground: var(--sidebar-foreground);
+  --color-sidebar: var(--sidebar);
+  --color-chart-5: var(--chart-5);
+  --color-chart-4: var(--chart-4);
+  --color-chart-3: var(--chart-3);
+  --color-chart-2: var(--chart-2);
+  --color-chart-1: var(--chart-1);
+  --color-ring: var(--ring);
+  --color-input: var(--input);
+  --color-border: var(--border);
+  --color-destructive: var(--destructive);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-accent: var(--accent);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-muted: var(--muted);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-secondary: var(--secondary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-primary: var(--primary);
+  --color-popover-foreground: var(--popover-foreground);
+  --color-popover: var(--popover);
+  --color-card-foreground: var(--card-foreground);
+  --color-card: var(--card);
+  --radius-sm: calc(var(--radius) - 4px);
+  --radius-md: calc(var(--radius) - 2px);
+  --radius-lg: var(--radius);
+  --radius-xl: calc(var(--radius) + 4px);
+}
+
+:root {
+  --radius: 0.625rem;
+  
+  /* OMNIS Brand Colors */
+  --omnis-deep-blue: #0D3B66;
+  --omnis-electric-cyan: #00B4D8;
+  --omnis-slate-gray: #5A6772;
+  --omnis-soft-white: #F5F5F5;
+  --omnis-vibrant-orange: #FF6B35;
+  --omnis-mint-green: #90EE90;
+  
+  /* System Colors - Updated with OMNIS theme */
+  --background: #FFFFFF;
+  --foreground: var(--omnis-slate-gray);
+  --card: var(--omnis-soft-white);
+  --card-foreground: var(--omnis-slate-gray);
+  --popover: #FFFFFF;
+  --popover-foreground: var(--omnis-slate-gray);
+  --primary: var(--omnis-deep-blue);
+  --primary-foreground: #FFFFFF;
+  --secondary: var(--omnis-electric-cyan);
+  --secondary-foreground: #FFFFFF;
+  --muted: var(--omnis-soft-white);
+  --muted-foreground: var(--omnis-slate-gray);
+  --accent: var(--omnis-electric-cyan);
+  --accent-foreground: #FFFFFF;
+  --destructive: #DC2626;
+  --border: #E5E7EB;
+  --input: #E5E7EB;
+  --ring: var(--omnis-electric-cyan);
+  
+  /* Chart Colors - Updated with OMNIS theme */
+  --chart-1: var(--omnis-deep-blue);
+  --chart-2: var(--omnis-electric-cyan);
+  --chart-3: var(--omnis-vibrant-orange);
+  --chart-4: var(--omnis-mint-green);
+  --chart-5: var(--omnis-slate-gray);
+  
+  /* Sidebar Colors */
+  --sidebar: var(--omnis-soft-white);
+  --sidebar-foreground: var(--omnis-slate-gray);
+  --sidebar-primary: var(--omnis-deep-blue);
+  --sidebar-primary-foreground: #FFFFFF;
+  --sidebar-accent: var(--omnis-electric-cyan);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #E5E7EB;
+  --sidebar-ring: var(--omnis-electric-cyan);
+}
+
+.dark {
+  /* Dark theme with OMNIS colors */
+  --background: #0A1929;
+  --foreground: var(--omnis-soft-white);
+  --card: #1A2332;
+  --card-foreground: var(--omnis-soft-white);
+  --popover: #1A2332;
+  --popover-foreground: var(--omnis-soft-white);
+  --primary: var(--omnis-electric-cyan);
+  --primary-foreground: var(--omnis-deep-blue);
+  --secondary: var(--omnis-deep-blue);
+  --secondary-foreground: #FFFFFF;
+  --muted: #1A2332;
+  --muted-foreground: #9CA3AF;
+  --accent: var(--omnis-electric-cyan);
+  --accent-foreground: var(--omnis-deep-blue);
+  --destructive: #EF4444;
+  --border: #374151;
+  --input: #374151;
+  --ring: var(--omnis-electric-cyan);
+  
+  /* Dark theme chart colors */
+  --chart-1: var(--omnis-electric-cyan);
+  --chart-2: var(--omnis-vibrant-orange);
+  --chart-3: var(--omnis-mint-green);
+  --chart-4: var(--omnis-deep-blue);
+  --chart-5: var(--omnis-slate-gray);
+  
+  /* Dark theme sidebar */
+  --sidebar: #1A2332;
+  --sidebar-foreground: var(--omnis-soft-white);
+  --sidebar-primary: var(--omnis-electric-cyan);
+  --sidebar-primary-foreground: var(--omnis-deep-blue);
+  --sidebar-accent: var(--omnis-deep-blue);
+  --sidebar-accent-foreground: #FFFFFF;
+  --sidebar-border: #374151;
+  --sidebar-ring: var(--omnis-electric-cyan);
+}
+
+@layer base {
+  * {
+    @apply border-border outline-ring/50;
+  }
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  /* OMNIS Brand Color Utilities */
+  .bg-omnis-deep-blue {
+    background-color: var(--omnis-deep-blue);
+  }
+  .bg-omnis-electric-cyan {
+    background-color: var(--omnis-electric-cyan);
+  }
+  .bg-omnis-slate-gray {
+    background-color: var(--omnis-slate-gray);
+  }
+  .bg-omnis-soft-white {
+    background-color: var(--omnis-soft-white);
+  }
+  .bg-omnis-vibrant-orange {
+    background-color: var(--omnis-vibrant-orange);
+  }
+  .bg-omnis-mint-green {
+    background-color: var(--omnis-mint-green);
+  }
+  
+  .text-omnis-deep-blue {
+    color: var(--omnis-deep-blue);
+  }
+  .text-omnis-electric-cyan {
+    color: var(--omnis-electric-cyan);
+  }
+  .text-omnis-slate-gray {
+    color: var(--omnis-slate-gray);
+  }
+  .text-omnis-soft-white {
+    color: var(--omnis-soft-white);
+  }
+  .text-omnis-vibrant-orange {
+    color: var(--omnis-vibrant-orange);
+  }
+  .text-omnis-mint-green {
+    color: var(--omnis-mint-green);
+  }
+  
+  .border-omnis-deep-blue {
+    border-color: var(--omnis-deep-blue);
+  }
+  .border-omnis-electric-cyan {
+    border-color: var(--omnis-electric-cyan);
+  }
+  .border-omnis-slate-gray {
+    border-color: var(--omnis-slate-gray);
+  }
+  
+  /* Hover effects with OMNIS colors */
+  .hover\:bg-omnis-deep-blue:hover {
+    background-color: var(--omnis-deep-blue);
+  }
+  .hover\:bg-omnis-electric-cyan:hover {
+    background-color: var(--omnis-electric-cyan);
+  }
+  .hover\:bg-omnis-vibrant-orange:hover {
+    background-color: var(--omnis-vibrant-orange);
+  }
+  .hover\:bg-omnis-mint-green:hover {
+    background-color: var(--omnis-mint-green);
+  }
+  
+  .hover\:text-omnis-deep-blue:hover {
+    color: var(--omnis-deep-blue);
+  }
+  .hover\:text-omnis-electric-cyan:hover {
+    color: var(--omnis-electric-cyan);
+  }
+  .hover\:text-omnis-vibrant-orange:hover {
+    color: var(--omnis-vibrant-orange);
+  }
+  .hover\:text-omnis-mint-green:hover {
+    color: var(--omnis-mint-green);
+  }
+  
+  /* Gradient utilities */
+  .bg-gradient-omnis {
+    background: linear-gradient(135deg, var(--omnis-deep-blue), var(--omnis-electric-cyan));
+  }
+  .bg-gradient-omnis-reverse {
+    background: linear-gradient(135deg, var(--omnis-electric-cyan), var(--omnis-deep-blue));
+  }
+  .bg-gradient-omnis-accent {
+    background: linear-gradient(135deg, var(--omnis-vibrant-orange), var(--omnis-mint-green));
+  }
+}
